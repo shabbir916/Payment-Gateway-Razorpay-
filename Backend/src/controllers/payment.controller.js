@@ -2,10 +2,10 @@ const productModel = require("../models/product.model");
 const Razorpay = require("razorpay");
 const paymentmodel = require("../models/payment.model");
 
-const razorpay = new Razorpay({
-  key_id: process.env.RAZORPAY_KEY_ID,
-  key_secret: process.env.RAZORPAY_KEY_SECRET,
-});
+// const razorpay = new Razorpay({
+//   key_id: process.env.RAZORPAY_KEY_ID,
+//   key_secret: process.env.RAZORPAY_KEY_SECRET,
+// });
 
 async function createOrder(req, res) {
   const product = await productModel.findOne();
@@ -33,7 +33,7 @@ async function createOrder(req, res) {
 
 async function verifyPayment(req, res) {
   const { razorpayOrderId, razorpayPaymentId, signature } = req.body;
-  const secret = process.env.RAZORPAY_KEY_SECRET;
+  // const secret = process.env.RAZORPAY_KEY_SECRET;
 
   try {
     const {
