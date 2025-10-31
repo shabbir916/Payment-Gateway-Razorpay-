@@ -5,7 +5,7 @@ function PaymentButton() {
   const handlePayment = async () => {
     try {
       // Step 1: Create order on backend
-      const { data: order } = await axios.post("http://localhost:3000/api/payments/create-order");
+      const { data: order } = await axios.post("https://payment-gateway-razorpay-bel5.onrender.com/api/payments/create-order");
 
       // Step 2: Razorpay options
       const options = {
@@ -18,7 +18,7 @@ function PaymentButton() {
         handler: async function (response) {
           const { razorpay_order_id, razorpay_payment_id, razorpay_signature } = response;
           try {
-            await axios.post("http://localhost:3000/api/payments/verify", {
+            await axios.post("https://payment-gateway-razorpay-bel5.onrender.com/api/payments/verify", {
               razorpayOrderId: razorpay_order_id,
               razorpayPaymentId: razorpay_payment_id,
               signature: razorpay_signature,

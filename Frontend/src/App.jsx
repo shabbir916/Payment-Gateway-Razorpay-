@@ -20,7 +20,7 @@ const App = () => {
 
   useEffect(() => {
     axios
-      .get('http://localhost:3000/api/product/get-item')
+      .get('https://payment-gateway-razorpay-bel5.onrender.com/api/product/get-item')
       .then((res) => {
         setProduct(res.data.product)
         console.log(res.data.product)
